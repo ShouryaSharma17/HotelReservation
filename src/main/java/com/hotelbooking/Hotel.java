@@ -61,5 +61,4 @@ public class Hotel {
         int noOfWeekdays = calculateNumberOfDays(startDate, endDate) + 1 - nonWeekdays;
         return noOfWeekdays * weekdayRate + nonWeekdays * weekendRate;
     }
-
 }
