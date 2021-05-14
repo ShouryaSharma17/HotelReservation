@@ -11,17 +11,11 @@ public class Hotel {
     private String startDate, endDate;
     private int rating;
 
-    public Hotel(String hotelName, int weekdayRate, int weekendRate, int rating) {
+    public Hotel(String hotelName, int weekdayRate, int weekendRate, int rating, String startDate, String endDate) {
         this.hotelName = hotelName;
         this.weekdayRate = weekdayRate;
         this.weekendRate = weekendRate;
         this.rating = rating;
-    }
-
-    public Hotel(String hotelName, int weekdayRate, int weekendRate, String startDate, String endDate) {
-        this.hotelName = hotelName;
-        this.weekdayRate = weekdayRate;
-        this.weekendRate = weekendRate;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -67,4 +61,5 @@ public class Hotel {
         int noOfWeekdays = calculateNumberOfDays(startDate, endDate) + 1 - nonWeekdays;
         return noOfWeekdays * weekdayRate + nonWeekdays * weekendRate;
     }
+
 }
