@@ -6,22 +6,22 @@ import org.junit.jupiter.api.Test;
 public class HotelTest {
     @Test
     public void givenLakewoodRateDetailsWhenAddedShouldReturnTrue() {
-        Hotel hotel = new Hotel("Lakewood", 110);
-        boolean result = (hotel.getRate() == 110);
+        Hotel hotel = new Hotel("Lakewood", 110, 90);
+        boolean result = (hotel.getWeekdayRate() == 110) && (hotel.getWeekendRate() == 90);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenBridgewoodRateDetailsWhenAddedShouldReturnTrue() {
-        Hotel hotel = new Hotel("Bridgewood", 160);
-        boolean result = (hotel.getRate() == 160);
+        Hotel hotel = new Hotel("Bridgewood", 150, 50);
+        boolean result = (hotel.getWeekdayRate() == 150) && (hotel.getWeekendRate() == 50);
         Assert.assertTrue(result);
     }
 
     @Test
     public void givenRidgewoodRateDetailsWhenAddedShouldReturnTrue() {
-        Hotel hotel = new Hotel("Ridgewood", 220);
-        boolean result = (hotel.getRate() == 220);
+        Hotel hotel = new Hotel("Ridgewood", 220, 150);
+        boolean result = (hotel.getWeekdayRate() == 220) && (hotel.getWeekendRate() == 150);
         Assert.assertTrue(result);
     }
 }
