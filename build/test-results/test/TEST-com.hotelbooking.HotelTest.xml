@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.hotelbooking.HotelTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-05-14T16:51:56" hostname="DESKTOP-DCC7S3K" time="0.121">
+  <properties/>
+  <testcase name="givenRidgewoodRateDetailsWhenAddedShouldReturnTrue()" classname="com.hotelbooking.HotelTest" time="0.102"/>
+  <testcase name="givenLakewoodRateDetailsWhenAddedShouldReturnTrue()" classname="com.hotelbooking.HotelTest" time="0.009"/>
+  <testcase name="givenBridgewoodRateDetailsWhenAddedShouldReturnTrue()" classname="com.hotelbooking.HotelTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
