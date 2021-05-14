@@ -21,11 +21,12 @@ public class HotelReservation {
     }
 
     public String findTheCheapestHotel() {
+        String hotelName = "";
         for (Hotel hotel : hotelList) {
             if (findMinimumPrice() == hotel.calculatePrice())
-                return hotel.getHotelName();
+                hotelName= hotelName+ hotel.getHotelName()+" ";
         }
-        return null;
+        return hotelName;
     }
 
     public void printWelcome() {

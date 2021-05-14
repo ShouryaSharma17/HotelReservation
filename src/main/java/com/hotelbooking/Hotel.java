@@ -1,5 +1,6 @@
 package com.hotelbooking;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
@@ -10,16 +11,10 @@ public class Hotel {
     private int weekdayRate, weekendRate;
     private String startDate, endDate;
 
-    public Hotel(String hotelName, int weekdayRate, int weekendRate) {
+    public Hotel(String hotelName, int weekdayRate, int weekendRate, String startDate, String endDate) {
         this.hotelName = hotelName;
         this.weekdayRate = weekdayRate;
         this.weekendRate = weekendRate;
-
-    }
-
-    public Hotel(String hotelName, int rate, String startDate, String endDate) {
-        this.hotelName = hotelName;
-        this.rate = rate;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -40,6 +35,19 @@ public class Hotel {
         return rate;
     }
 
+    public int noOfWeekends(String date) {
+        int count = 0;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyy");
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        int noOfDays = calculateNumberOfDays(startDate, endDate);
+        for (int day = 0; day <= noOfDays; day++) {
+            if (localDate.getDayOfWeek() == DayOfWeek.SATURDAY || localDate.getDayOfWeek() == DayOfWeek.SUNDAY)
+                count++;
+            localDate = localDate.plusDays(1);
+        }
+        return count;
+    }
+
     public int calculateNumberOfDays(String startDate, String endDate) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMyyyy");
         LocalDate localStartDate = LocalDate.parse(startDate, formatter);
@@ -48,6 +56,9 @@ public class Hotel {
     }
 
     public int calculatePrice() {
-        return calculateNumberOfDays(startDate, endDate) * rate;
+        int nonWeekdays = noOfWeekends(startDate);
+        int noOfWeekdays = calculateNumberOfDays(startDate, endDate) + 1 - nonWeekdays;
+        return noOfWeekdays * weekdayRate + nonWeekdays * weekendRate;
     }
+
 }
